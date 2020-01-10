@@ -1,0 +1,109 @@
+<div class="footer-menu-5-icons footer-menu-style-1" id="footer-menu">
+    <a href="index.html" class="fi-home">
+        <i class="fa fa-home"></i>
+        <span>Home</span>
+    </a>
+    <a href="program.html" class="fi-program">
+        <i class="fa fa-star"></i>
+        <span>TA Event Info</span>
+    </a>
+    <a href="materials.html" class="fi-materials">
+        <i class="fa fa-folder"></i>
+        <span>Materials</span>
+    </a>
+    <a href="org_chart.html" class="fi-speakers">
+        <i class="fa fa-users"></i>
+        <span>Org Chart</span>
+    </a>
+    <a data-menu="menu-settings" href="#" class="fi-more">
+        <i class="fa fa-cog"></i>
+        <span>More</span>
+    </a>
+    <div class="clear"></div>
+</div>
+
+<!--Menu Settings-->
+<div class="menu menu-box-bottom menu-box-detached round-large" data-menu-effect="menu-over" data-menu-height="310" id="menu-settings">
+    <div class="content bottom-0">
+        <div class="menu-title">
+            <h1>More</h1>
+            <a class="close-menu" href="#">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+        <div class="divider bottom-20"></div>
+
+        <div class="link-list link-list-2 link-list-long-border">
+            <a data-menu="menu-highlights" href="about.html" class="fi-about">
+                <i class="fa fa-address-card bg-blue2 color-white round-tiny"></i>
+                <span>About Us</span>
+                <strong>Learn about the refinery</strong>
+                <em class="bg-highlight">View</em>
+            </a>
+            <a class="no-border" data-menu="menu-backgrounds" href="helpdesk.html" class="fi-helpdesk">
+                <i class="fa fa-question-circle bg-blue2 color-white round-tiny"></i>
+                <span>IT Helpdesk</span>
+                <strong>Helpdesk Information</strong>
+                <em class="bg-highlight">View</em>
+            </a>
+            <a class="no-border" data-menu="menu-backgrounds" href="parking.html" class="fi-parking">
+                <i class="fa fa-parking bg-blue2 color-white round-tiny"></i>
+                <span>Parking</span>
+                <strong>Know where to park beforehand</strong>
+                <em class="bg-highlight">View</em>
+            </a>
+            <a class="no-border" data-menu="menu-backgrounds" href="she_plan.html" class="fi-sheplan">
+                <i class="fa fa-certificate bg-blue2 color-white round-tiny"></i>
+                <span>She-Plan</span>
+                <strong>Trainings and Certifications</strong>
+                <em class="bg-highlight">View</em>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="menu-hider"></div>
+
+<script type="text/javascript">
+function setHref(selector, val) {
+    if (val && val != '') {
+        $(selector).attr('href', val);
+        var href = window.location.href;
+        if (href.search(val) != -1) {
+            $(selector).addClass('active-nav');
+            if (selector == '.fi-about' || selector == '.fi-helpdesk' || selector == '.fi-parking' || selector == '.fi-sheplan') {
+                $('.fi-more').addClass('active-nav');
+            }
+        } else if (href.endsWith('android/') || href.endsWith('android')) {
+            $('.fi-home').addClass('active-nav');
+        }
+    }
+}
+
+$.ajax({
+    url: 'http://torrance.fitandappy.com/index.php',
+    dataType: 'json'
+    })
+    .done(function(result) {
+        $.each(result, function (k, val) {
+            var res = val['id'];
+            if(res == 1) {
+                setHref('.fi-home', val['url']);
+            } else if (res == 11) {
+                setHref('.fi-about', val['url']);
+            } else if (res == 12) {
+                setHref('.fi-program', val['url']);
+            } else if (res == 14) {
+                setHref('.fi-speakers', val['url']);
+            } else if (res == 18) {
+                setHref('.fi-helpdesk', val['url']);
+            } else if (res == 19) {
+                setHref('.fi-sheplan', val['url']);
+            } else if (res == 22) {
+                setHref('.fi-parking', val['url']);
+            } else if (res == 171) {
+                setHref('.fi-materials', val['url']);
+            }
+        });
+    });
+    
+</script>

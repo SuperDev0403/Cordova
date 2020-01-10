@@ -1,0 +1,54 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-android-support-gradle-release": {
+      "ANDROID_SUPPORT_VERSION": "27.+",
+      "PACKAGE_NAME": "com.app.torrance"
+    },
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.app.torrance"
+    },
+    "cordova-plugin-document-viewer": {
+      "PACKAGE_NAME": "com.app.torrance"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.app.torrance"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.app.torrance"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.app.torrance"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "com.app.torrance"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.app.torrance"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "com.app.torrance"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.app.torrance"
+    },
+    "phonegap-plugin-mobile-accessibility": {
+      "PACKAGE_NAME": "com.app.torrance"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.app.torrance"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.app.torrance"
+    }
+  }
+}

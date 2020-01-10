@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Torrance",
+  "short_name": "Torrance",
+  "version": "com.app.torrance",
+  "description": "A conference application for refineries",
+  "author": "Torrance",
+  "icons": [],
+  "start_url": "index.html"
+}

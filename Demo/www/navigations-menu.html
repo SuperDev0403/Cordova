@@ -1,0 +1,199 @@
+<div class="content">
+    <h2 class="bolder top-20">Torrance</h2>
+    <div class="divider bottom-5"></div>
+    <div class="link-list link-list-2" id="navMenu">
+
+        <a href="index.html">
+            <i class="fa fa-home bg-green1-dark round-tiny"></i>
+            <span class="name_home"></span>
+            <strong>Home</strong>
+        </a>
+
+        <a href="#about_sub">
+            <i class="fa fa-address-card bg-blue2-dark round-tiny"></i>
+            <span class="name_about"></span>
+            <strong>About</strong>
+            <i id="about" class="fa fa-angle-down"></i>
+        </a>
+        <div style="margin-left:20px; display:none;" id="about_sub">
+            <a href="about.html">
+                <i class="fa fa-address-card bg-red2-dark round-tiny"></i>
+                <span class="name_about_us"></span>
+                <strong>About Us</strong>
+            </a>
+            <a href="helpdesk.html">
+                <i class="fa fa-question-circle bg-green2-dark round-tiny"></i>
+                <span class="name_it_helpdesk"></span>
+                <strong>IT Helpdesk</strong>
+            </a>
+            <a href="she_plan.html">
+                <i class="fa fa-certificate bg-gray2-dark round-tiny"></i>
+                <span class="name_she_plan"></span>
+                <strong>She Plan</strong>
+            </a>
+            <a href="vehicle-pass.html">
+                <i class="fa fa-car-alt bg-magenta2-dark round-tiny"></i>
+                <span class="name_vehicle_pass"></span>
+                <strong>Vehicle Pass</strong>
+            </a>
+            <a href="deliveries.html">
+                <i class="fa fa-boxes bg-yellow1-dark round-tiny"></i>
+                <span class="name_deliveries"></span>
+                <strong>Deliveries</strong>
+            </a>
+            <a href="parking.html">
+                <i class="fa fa-parking bg-teal-dark round-tiny"></i>
+                <span class="name_parking"></span>
+                <strong>Parking</strong>
+            </a>
+            <a href="badge_room.html">
+                <i class="fa fa-id-badge bg-green2-dark round-tiny"></i>
+                <span class="name_badge_room"></span>
+                <strong>Badge Room</strong>
+            </a>
+            <a href="passport.html">
+                <i class="fa fa-passport bg-blue1-dark round-tiny"></i>
+                <span class="name_passport"></span>
+                <strong>Passport</strong>
+            </a>
+        </div>
+
+        <a href="#information_sub">
+            <i class="fa fa-info bg-red2-dark round-tiny"></i>
+            <span class="name_information"></span>
+            <strong>Information</strong>
+            <i id="information" class="fa fa-angle-down"></i>
+        </a>
+        <div style="margin-left:20px; display:none;" id="information_sub">
+            <a href="program.html">
+                <i class="fa fa-star bg-magenta2-dark round-tiny"></i>
+                <span class="name_ta_event_info"></span>
+                <strong>TA Event Info</strong>
+            </a>
+            <a href="speakers.html">
+                <i class="fa fa-users bg-yellow1-dark round-tiny"></i>
+                <span class="name_speakers"></span>
+                <strong>Org Chart</strong>
+            </a>
+            <a href="materials.html">
+                <i class="fa fa-folder bg-teal-dark round-tiny"></i>
+                <span class="name_materials"></span>
+                <strong>Materials</strong>
+            </a>
+        </div>
+
+        <a href="http://www.dropbox.com">
+            <i class="fa fa-box-open bg-gray2-dark round-tiny"></i>
+            <span class="name_dropbox"></span>
+            <strong>Dropbox</strong>
+        </a>
+
+        <div id="newPageNavContents"></div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    function setTitle(selector, val) {
+        if (val && val != '') {
+            $(selector).html(val);
+        }
+    }
+
+    $(".link-list a").click(function () {
+        var href = $(this).attr("href");
+        if (href.startsWith("#")) {
+            if ($(href).is(":visible")) {
+                $(href).hide();
+                $(this).find("#about").attr("class", "fa fa-angle-down");
+                $(this).find("#information").attr("class", "fa fa-angle-down");
+            } else {
+                $(href).show();
+                $(this).find("#about").attr("class", "fa fa-angle-up");
+                $(this).find("#information").attr("class", "fa fa-angle-up");
+            }
+            return false;
+
+        } else {
+            return true;
+        }
+
+    });
+
+    $.ajax({ // ajax call starts
+        url: 'http://torrance.fitandappy.com/index.php', // JQuery loads serverside.php
+        dataType: 'json', // Choosing a JSON datatype
+    }).done(function (result) {
+        $.each(result, function (k, val) {
+            var res = val['id'];
+            if (res == 1) {
+                setTitle('.name_home', val['title']);
+            } else if (res == 2) {
+                setTitle('.name_about', val['title']);
+            } else if (res == 3) {
+                setTitle('.name_information', val['title']);
+            } else if (res == 4) {
+                setTitle('.name_question', val['title']);
+            } else if (res == 5) {
+                setTitle('.name_rating', val['title']);
+            } else if (res == 6) {
+                setTitle('.name_dropbox', val['title']);
+            } else if (res == 7) {
+                setTitle('.name_upload', val['title']);
+            } else if (res == 11) {
+                setTitle('.name_about_us', val['title']);
+            } else if (res == 12) {
+                setTitle('.name_ta_event_info', val['title']);
+            } else if (res == 14) {
+                setTitle('.name_speakers', val['title']);
+            } else if (res == 16) {
+                setTitle('.name_deliveries', val['title']);
+            } else if (res == 17) {
+                setTitle('.name_passport', val['title']);
+            } else if (res == 18) {
+                setTitle('.name_it_helpdesk', val['title']);
+            } else if (res == 19) {
+                setTitle('.name_she_plan', val['title']);
+            } else if (res == 22) {
+                setTitle('.name_parking', val['title']);
+            } else if (res == 23) {
+                setTitle('.name_vehicle_pass', val['title']);
+            } else if (res == 25) {
+                setTitle('.name_badge_room', val['title']);
+            } else if (res == 171) {
+                setTitle('.name_materials', val['title']);
+            }
+        });
+    });
+
+
+    // new page items
+    $.ajax({
+        url: 'http://torrance.fitandappy.com/new_pages.php',
+        dataType: 'json'
+    }).done(function (result) {
+        var $wrapper = $('#newPageNavContents');
+        var html = '';
+
+        $.each(result, function (k, val) {
+
+            var url = '';
+            if (val['type'] == 'Map') {
+                url = 'template_maps.html?id=' + val['id'];
+            } else if (val['type'] == 'File') {
+                url = 'template_files.html?id=' + val['id'];
+            } else if (val['type'] == 'Form') {
+                url = 'template_form.html?id=' + val['id'];
+            }
+
+            html += '<a href="' + url + '">';
+            html += '<i class="' + val['icon'] + ' bg-blue2-dark round-tiny"></i>';
+            html += '<span>' + val['name'] + '</span>';
+            html += '<strong>' + val['name'] + '</strong>';
+            html += '</a>';
+
+        });
+
+        $wrapper.html(html);
+    });
+</script>

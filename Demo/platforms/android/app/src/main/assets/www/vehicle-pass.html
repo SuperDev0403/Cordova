@@ -1,0 +1,71 @@
+﻿<!DOCTYPE HTML>
+<html lang="en">
+
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/>
+        <title>Torrance</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+        <link href="styles/style.css" rel="stylesheet" type="text/css">
+        <link href="styles/framework.css" rel="stylesheet" type="text/css">
+        <link href="fonts/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body class="theme-light" data-background="none" data-highlight="blue2">
+
+        <div id="page">
+
+            <div id="page-preloader">
+                <div class="loader-main">
+                    <div class="preload-spinner border-highlight"></div>
+                </div>
+            </div>
+
+            <div class="header header-fixed header-logo-center" style="background-color: red">
+                <a class="header-title color-white" href="index.html"></a>
+                <a class="back-button header-icon header-icon-1" href="index.html">
+                    <i class="fas fa-arrow-left color-white"></i>
+                </a>
+                <a class="header-icon header-icon-4" data-toggle-theme-switch="" href="search.html">
+                    <i class="fas fa-search color-white"></i>
+                </a>
+            </div>
+
+
+            <div class="page-content header-clear-medium">
+
+                <div class="content-boxed">
+                    <div class="content center-text bottom-20">
+                        <img class="responsive-image round-small shadow-huge bottom-20" src="images/refinery.jpg">
+                        <h1 class="bolder font-30">Vehicle Pass</h1>
+                        <p class="opacity-70 bottom-0 top-10">
+                            Please print this pass and place in the windshield of your car!
+                        </p>
+                        <a class="button button-s bg-highlight button-round-large shadow-huge top-20 button-full" href="#" onclick="window.open('http://torrance.fitandappy.com/admin_cta/vehicle_upload/Vehicle%20Request%20Form.pdf', '_system', 'location=no');    return false;">View Your Pass</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="footerWrapper"></div>
+        </div>
+
+        <script src="scripts/jquery.js" type="text/javascript"></script>
+
+        <script src="scripts/plugins.js" type="text/javascript"></script>
+        <script src="cordova.js" type="text/javascript"></script>
+
+        <script src="scripts/custom.js" type="text/javascript"></script>
+        <script src="plugins/menu.js" type="text/javascript"></script>
+        <script src="scripts/language.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var deviceReady = function () {
+                if (window.MobileAccessibility) {
+                    window.MobileAccessibility.usePreferredTextZoom(false);
+                }
+            }
+            document.addEventListener('deviceready', deviceReady, false);
+        </script>
+    </body>
+</html>

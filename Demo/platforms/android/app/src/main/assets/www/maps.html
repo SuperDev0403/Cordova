@@ -1,0 +1,138 @@
+﻿<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta
+        content="default-src * gap: ws: https://ssl.gstatic.com;style-src * 'unsafe-inline' 'self' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;img-src * data: 'unsafe-inline' 'self' content:;media-src mediastream;"
+        http-equiv="Content-Security-Policy">
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover"
+        name="viewport" />
+
+    <!-- <meta http-equiv="Refresh" content="7; url=//www.w3docs.com" /> -->
+
+    <title>Torrance</title>
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i"
+        rel="stylesheet">
+    <link href="styles/style.css?33" rel="stylesheet" type="text/css">
+    <link href="styles/framework.css" rel="stylesheet" type="text/css">
+    <link href="fonts/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
+    <script src="scripts/jquery.js" type="text/javascript"></script>
+
+    <style>
+        iframe {
+            margin: auto;
+            width: 350px;
+            height: 200px;
+        }
+
+        #js_all {
+            width: 1080px;
+            height: 1600px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            background: url('../images/content_small_bg.png') repeat;
+        }
+    </style>
+</head>
+
+<body class="theme-light" data-background="none" data-highlight="blue2">
+
+    <div id="page">
+        <div id="page-preloader">
+            <div class="loader-main">
+                <div class="preload-spinner border-highlight"></div>
+            </div>
+        </div>
+
+        <div class="header header-fixed header-logo-center" style="background-color: red">
+            <a class="header-title color-white" href="index.html"></a>
+            <a class="back-button header-icon header-icon-1" href="#">
+                <i class="fas fa-arrow-left color-white"></i>
+            </a>
+        </div>
+
+        <div class="page-content header-clear-medium">
+
+            <div class="caption caption-margins round-medium shadow-huge" data-height="130" style="height: 130px;">
+                <div class="caption-center center-15 text-center">
+                    <h1 class="color-white bolder">Maps</h1>
+                </div>
+                <div class="caption-overlay bg-highlight"></div>
+                <div class="bg-highlight bg-18"></div>
+            </div>
+
+            <div class="col-12 col-xl-8 list disable-text-selection" data-check-all="checkAll"
+                style="margin-top: -30px">
+                <div id="maps_url" style="display: inline-block;"></div>
+                <div id="list_content"></div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="footerWrapper"></div>
+
+    <script type="text/javascript">
+        var data;
+        $.ajax({ // ajax call starts
+            url: 'http://torrance.fitandappy.com/maps.php',
+            // JQuery loads serverside.php
+            // Send value of the clicked button
+            dataType: 'json', // Choosing a JSON datatype
+        }).done(function (result) {
+            var title = result['title'];
+            var i = 0;
+            var content = '';
+            data = result['data'];
+            $.each(data, function (k, val) { // $ext = val['name'];
+                content = content + "<div class='content-boxed map-item' data-index='" + i +
+                    "'>" +
+                    "<div class='item text-center'>" +
+                    "<div style=\"display:inline-block;width:350px;height:200px;\">" + val[
+                        'map'] +
+                    "</div>" + "</div>" + "</div>";
+                i++;
+                //content = content + "<div class='content-boxed'  onclick=onclickmaps(" + i + ")>" +
+                //    "<div class='item text-center'>" +
+                //    "<div style=\"display:inline-block;width:350px;height:200px;\">" + val['map'] +
+                //    "</div>" + "</div>" + "</div>";
+                //i++;
+            });
+
+            $('#list_content').append(content);
+            $('.header-title').append(title);
+        });
+
+        function onclickmaps(i) {
+
+            var myWindow = window.open("", "");
+            myWindow.document.write(data[i]['map']);
+        }
+    </script>
+
+    <!-- Page Content Class Ends Here-->
+    <script src="scripts/jquery.js" type="text/javascript"></script>
+    <script src="scripts/map.js" type="text/javascript"></script>
+    <script src="scripts/plugins.js" type="text/javascript"></script>
+    <script src="cordova.js" type="text/javascript"></script>
+
+    <script src="scripts/custom.js" type="text/javascript"></script>
+    <script src="plugins/menu.js" type="text/javascript"></script>
+    <script src="scripts/language.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        var deviceReady = function () {
+            if (window.MobileAccessibility) {
+                window.MobileAccessibility.usePreferredTextZoom(false);
+            }
+        }
+        document.addEventListener('deviceready', deviceReady, false);
+    </script>
+</body>
+
+</html>
